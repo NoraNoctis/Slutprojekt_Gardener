@@ -2,7 +2,9 @@ using System;
 
 namespace Gardener
 {
-    public class Garden
+    public class Garden: Rooms
     {
+        
+
     }
 }

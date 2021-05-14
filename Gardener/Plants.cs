@@ -4,8 +4,13 @@ namespace Gardener
 {
     public class Plants
     {
-        bool watered;
-        bool fullgrown; 
+        protected string plantType;
+        protected string plantName;
+        protected bool watered;
+
+        protected  bool fullgrown; 
+        protected int growthstage = 1;
+        protected int maxGrowth; 
     }
     // genreate prize
     // water

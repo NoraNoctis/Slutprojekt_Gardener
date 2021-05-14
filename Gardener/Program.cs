@@ -14,10 +14,12 @@ namespace Gardener
                 int room = Choise(new string[] {"Garden","Marketplase"});
 
                 // dictionary actions?
+                
+                
 
                 if (room == 0) // garden 
                 { 
-                    //posible actions: select pots (10), leave
+                    //posible actions: select pots (10/ 5?), leave
                     // pot selected: check empty (bool)> +plant /- check growth, check water/water, harvest, display info
                     // leave > room ==3
                  
@@ -27,7 +29,7 @@ namespace Gardener
                 else if (room == 1) // shop
                 { 
                     // posible actions: buy, sell 
-                    //inventory: money (int), seeds(int), grown plants (list: class instanser (add/remove))
+                    
                     // leave > room ==3
                 
 
