@@ -2,7 +2,7 @@ using System;
 
 namespace Gardener
 {
-    public class Tomato:Vegetables
+    public class Tomato:Vegetable
     {
         static Random Gen = new Random();
         public Tomato()

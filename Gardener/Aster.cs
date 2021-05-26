@@ -10,6 +10,8 @@ namespace Gardener
             plantName = "Aster";
 
             quality = 4;
+
+            //trivia = "" 
             
 
 

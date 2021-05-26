@@ -2,13 +2,13 @@ using System;
 
 namespace Gardener
 {
-    public class Carrot:Vegetables
+    public class Carrot:Vegetable
     {
-        static Random Gen = new Random();
+        static Random GenC = new Random();
         public Carrot()
         {
             plantName = "Carrot";
-            int q = Gen.Next(1,4);
+            int q = GenC.Next(1,4);
 
             quality = q;
             

@@ -21,14 +21,22 @@ namespace Gardener
         protected int typeWorth;
         protected int quality;
 
+        private string statusAlive = "Yes";
+        private string statusWater = "Watered";
+        private string statusGrowth;
+       // protected string trivia; - i konstruktor för specifik växt
+
         public Plants()
         {
-            watered = false;
+            watered = true;
             waterCount = 0;
             dryCount = 0;
             growthstage = 0;
             fullgrown = false;
             alive = true;
+            
+            
+            
             
         }
         public int PrizeWorth()
@@ -39,18 +47,78 @@ namespace Gardener
             return finalPrize;
 
         }
-        Public void DisplayInfo ()
+        protected void Grow () 
         {
-            
+            if (watered ==true)
+            {
+                growthstage ++;
+
+                if (growthstage>= maxGrowth)
+                {
+                    growthstage = maxGrowth;
+                    fullgrown = true;
+                    statusGrowth = "Fullgrown and ready to harvest";
+
+                }
+            }
+            statusGrowth = growthstage + "/" + maxGrowth;
+
         }
+        protected void Drink()
+        {
+            waterCount ++;
+        }
+        public void WaterPlant ()
+        {
+            watered = true;
+            waterCount = 0;
+            dryCount = 0;
+
+        }
+        protected void CheckWater()
+        {
+            if (waterCount>needWater)
+            {
+                watered = false;
+                dryCount ++;
+                statusWater = "Needs to be watered";
+            }
+        }
+        protected bool CheckAlive()
+        {
+            if (dryCount> 5)
+            {
+                alive = false;
+                statusAlive = "No";
+            }
+            return alive;
+        }
+        public void Timepass() // kör alla metoder som ska ske när tid går
+        {
+            CheckWater();
+            Grow();
+            Drink();
+            CheckAlive();
+
+        }
+
+        public void DisplayInfo()
+        {
+            Console.WriteLine("Plant: "+ plantName);
+            Console.WriteLine("Type: "+ plantType);
+            Console.WriteLine("Growth: " + statusGrowth);
+            Console.WriteLine("Care: "+statusWater);
+            Console.WriteLine("Alive: "+statusAlive);
+            int v = PrizeWorth();
+            Console.WriteLine("Estimated Value: "+ v);
+            //Console.WriteLine("Other info: "+trivia); 
+        }
+
+
+
 
 
     }
     
-    // check water
-    // water
-    // check growth
-    // check alive
-    // grow
-    // display info
+    
 }
